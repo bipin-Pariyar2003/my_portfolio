@@ -6,7 +6,7 @@ from django.db import models
 class About(models.Model):
     short_description = models.TextField()
     description = models.TextField()
-    about_img = models.ImageField(upload_to = "about")
+    about_img = models.ImageField(upload_to = "about/")
 
     class Meta:
         verbose_name = "About me"
@@ -28,7 +28,7 @@ class Skills(models.Model):
 #My Projects
 class My_projects(models.Model):
     title = models.TextField()
-    project_img = models.ImageField()
+    project_img = models.ImageField(upload_to="projects/")
 
     def __str__(self):
         return self.title
@@ -37,6 +37,9 @@ class My_projects(models.Model):
 #contact
 class Contact(models.Model):
     email = models.EmailField()
+    linkedin = models.URLField(max_length=200, blank=True, null=True)  # For LinkedIn URL
+    github = models.URLField(max_length=200, blank=True, null=True)    # For GitHub URL
+    location = models.CharField(max_length=255, blank=True, null=True)  # For location text
     
 
     def __str__(self):
