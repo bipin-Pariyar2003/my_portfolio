@@ -116,6 +116,15 @@
                     <img src="{{ project.project_img.url }}" alt="{{ project.title }}" style="width: 250px; height: 250px; border-radius: 50%; object-fit: cover; border: 2px solid #ddd;">
                 </div>
             </div>
+
+             <!-- Animated Button to View Project -->
+             {% if project.project_link %}
+             <div style="text-align: center; margin-top: 20px;">
+                 <a href="{{ project.project_link }}" target="_blank" class="btn btn-primary btn-lg animate__animated animate__fadeIn animate__delay-0s" style="background-color: #243642; color: white; font-size: 1.2rem; padding: 10px 20px; border-radius: 5px; text-decoration: none;">
+                     <i class="fas fa-external-link-alt"></i> Click Here to View Project
+                 </a>
+             </div>
+         {% endif %}
             <hr><hr>
         {% endfor %}
     {% else %}

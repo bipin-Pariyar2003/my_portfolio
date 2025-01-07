@@ -29,6 +29,7 @@ class Skills(models.Model):
 class My_projects(models.Model):
     title = models.TextField()
     project_img = models.ImageField(upload_to="projects/")
+    project_link = models.URLField(max_length=200, blank=True, null=True)  # New field for project link
 
     def __str__(self):
         return self.title
