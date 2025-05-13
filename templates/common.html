@@ -12,6 +12,9 @@
 
     <!-- pwa manifest -->
     <link rel="manifest" href="{% static 'manifest.json' %}" />
+    <link rel="icon" href="{% static 'images/portfolio-icon.png' %}" sizes="192x192" />
+    <link rel="icon" href="{% static 'images/portfolio-icon2.png' %}" sizes="512x512" />
+
     <!-- Smooth Scrolling -->
     <style>
       html {
@@ -124,8 +127,11 @@
       if ("serviceWorker" in navigator) {
         navigator.serviceWorker
           .register("{% static 'js/serviceworker.js' %}")
-          .then(function () {
-            console.log("Service Worker Registered");
+          .then(function (reg) {
+            console.log("Service Worker Registered", reg);
+          })
+          .catch(function (error) {
+            console.error("Service Worker Registration failed:", error);
           });
       }
     </script>
